@@ -27,6 +27,11 @@ def output_path():
 
 
 def main():
+    # Local mirror of the sealed gate: 1-200 characters, one sentence.
+    if not 1 <= len(LINE) <= 200:
+        raise SystemExit("entry must be 1-200 characters")
+    if LINE.count(".") != 1 or not LINE.endswith("."):
+        raise SystemExit("entry must be a single sentence")
     path = output_path()
     parent = os.path.dirname(path)
     if parent:
